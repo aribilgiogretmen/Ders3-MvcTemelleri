@@ -1,0 +1,71 @@
+﻿@model LottoNumber
+
+<head>
+    <title>Sayısal Loto</title>
+    <style>
+
+        body{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+            
+        }
+        ul{
+            list-style-type:none;
+            padding:0;
+        }
+        li{
+            display:inline-block;
+            margin:10;
+            font-size:20px;
+            font-weight:10;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <h3>Sayısal Loto Uygulaması</h3>
+
+    <div id="LottoNumbers">
+
+
+        @await Html.PartialAsync("_LottoNumbers",Model); 
+
+    </div>
+
+@*         <form asp-action="Generate" method="post">
+
+            <button type="submit">Yeni Numara Oluştur</button>
+
+        </form> *@
+
+    <button id="generateButton">Yeni Sayı Oluştur</button>
+
+</body>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        document.getElementById("generateButton").addEventListener("click", function () {
+
+
+            fetch("/Lotto/Generate", {
+                method: "Post",
+                headers: {
+                    "content-Type": "application/json"
+                }
+
+            })
+
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("LottoNumbers").innerHTML = data;
+                });
+
+        });
+    });
+
+
+</script>
