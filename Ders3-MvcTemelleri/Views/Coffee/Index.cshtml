@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Coffee>
+
+    <div>
+
+    @foreach (var item in Model)
+    {
+
+        @await Html.PartialAsync("_Coffee1", item)
+        
+    }
+
+    </div>
