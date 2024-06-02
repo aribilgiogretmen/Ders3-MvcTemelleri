@@ -1,5 +1,13 @@
-﻿@model User
+﻿@model IEnumerable<User>
 
 <h2>User Profil</h2>
 
-@await Html.PartialAsync("_HasanPV",Model)
+
+@foreach (var item in Model)
+{
+  <div>
+      @item.Name
+
+
+  </div>
+}

@@ -8,28 +8,40 @@ namespace Ders3_MvcTemelleri.Controllers
         public IActionResult Index()
         {
 
-            var user = new User
+
+            var Users = new List<User>
             {
-                Id = 1,
-                Name = "Hasan",
-                Email = "hasan@mail.com"
+
+                new User {Id=1,Name="Ali",Email="ali@ali.com"},
+                new User {Id=2,Name="Veli",Email="veli@veli.com"}
+
             };
 
-            return View(user);
+
+            //var user = new User
+            //{
+            //    Id = 1,
+            //    Name = "Hasan",
+            //    Email = "hasan@mail.com"
+            //};
+
+            //return View(user);
+
+            return View(Users);
         }
 
 
-        public IActionResult User2()
-        {
+        //public IActionResult User2()
+        //{
 
-            var user = new User
-            {
-                Id = 2,
-                Name = "Mehmet",
-                Email = "Mehmet@mail.com"
-            };
+        //    var user = new User
+        //    {
+        //        Id = 2,
+        //        Name = "Mehmet",
+        //        Email = "Mehmet@mail.com"
+        //    };
 
-            return View(user);
-        }
+        //    return View(user);
+        //}
     }
 }
